@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Based Web Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #9face6);
+            text-align: center;
+            padding: 40px;
+        }
+
+        .container {
+            background: white;
+            width: 450px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        ul {
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        li {
+            font-size: 18px;
+            margin: 6px 0;
+        }
+
+        button {
+            padding: 8px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Array Operations</h2>
+    <button onclick="showResults()">Show Results</button>
+    <div id="output"></div>
+</div>
+
+<script>
+function showResults() {
+
+    // 1. Create array of 6 numbers
+    let numbers = [15, 8, 23, 4, 42, 16];
+
+    let sum = 0;
+    let largest = numbers[0];
+    let reverse = [];
+
+    // 2 & 3. Loop over array to calculate sum and largest
+    for (let i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+
+        if (numbers[i] > largest) {
+            largest = numbers[i];
+        }
+    }
+
+    // 4. Reverse order using loop
+    for (let i = numbers.length - 1; i >= 0; i--) {
+        reverse.push(numbers[i]);
+    }
+
+    // 5. Display results in proper HTML format
+    document.getElementById("output").innerHTML =
+        "<ul>" +
+        "<li><strong>Original Array:</strong> " + numbers.join(", ") + "</li>" +
+        "<li><strong>Sum of Numbers:</strong> " + sum + "</li>" +
+        "<li><strong>Largest Number:</strong> " + largest + "</li>" +
+        "<li><strong>Reverse Order:</strong> " + reverse.join(", ") + "</li>" +
+        "</ul>";
+}
+</script>
+
+</body>
+</html>
